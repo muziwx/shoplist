@@ -1,0 +1,29 @@
+{
+  "name": "text",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "prettier": "prettier \"{src,mock}/**/*.{vue,ts}\" --write",
+    "lint:js": "eslint \"{src,mock}/**/*.{vue,ts}\" ",
+    "lint:js-fix": "eslint \"{src,mock}/**/*.{vue,ts}\" --fix",
+    "lint:css": "stylelint \"**/*.{vue,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "lint:css-fix": "stylelint \"**/*.{vue,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/ --fix",
+    "husky": "husky install",
+    "test": "jest"
+  },
+  "dependencies": {
+    "vant": "^3.5.1",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "typescript": "^4.5.4",
+    "unplugin-vue-components": "^0.19.6",
+    "vite": "^2.9.9",
+    "vue-tsc": "^0.34.7"
+  }
+}
