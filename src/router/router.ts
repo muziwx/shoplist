@@ -4,7 +4,7 @@ export const routerList: Array<RouteRecordRaw> = [
   {
     path: "/",
     name:'home',
-    component:()=> import('../view/home/home.vue'),
+    component:()=> import('@/view/home/home.vue'),
     meta:{
         title:"登录"
     }
@@ -12,17 +12,17 @@ export const routerList: Array<RouteRecordRaw> = [
   {
     path:"/shopping",
     name:'shopping',
-    component:()=>import('../view/shopping/shopping.vue')
+    component:()=>import('@/view/shopping/shopping.vue')
   },
   {
     path:"/shopcar",
     name:'shopcar',
-    component:()=>import('../view/shopcar/shopcar.vue')
+    component:()=>import('@/view/shopcar/shopcar.vue')
   },
   {
     path:"/login",
     name:'login',
-    component:()=>import('../view/login/login.vue')
+    component:()=>import('@/view/login/login.vue')
   }
 ];
 
