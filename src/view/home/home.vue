@@ -1,36 +1,67 @@
 <template>
     <div class="wrappar_c">
-        <van-field v-model="seach" label="文本" left-icon="smile-o" right-icon="warning-o" placeholder="显示图标" />
-        <div class="content_w">
-            <van-swipe :autoplay="3000" lazy-render>
-                <van-swipe-item v-for="image in images" :key="image">
-                    <img :src="image" class="swipe_item_image" />
-                </van-swipe-item>
-            </van-swipe>
-            <p class="yixian">一线</p>
+        <div class="top_c">
+            <div></div>
+            <div>
+                <span :class="{ active: chooseIndex == 0 }" @click="chooseItem(0)">关注</span>
+                <span :class="{ active: chooseIndex == 1 }" @click="chooseItem(1)">发现</span>
+                <span :class="{ active: chooseIndex == 2 }" @click="chooseItem(2)">
+                    <van-icon name="location" />深圳
+                </span>
+            </div>
+            <div>
+                <van-icon name="volume-o" @click="toNotice()" />
+            </div>
         </div>
+        <van-search v-model="seach" shape="round" background="#fff" placeholder="请输入搜索地点/景点" class="seach_input" />
+        <router-view></router-view>
     </div>
-</template>
-
+</template>    
 <script lang="ts" setup>
-import { ref, reactive } from 'vue'
-const active = ref(0);
+import { ref } from 'vue'
+import { useRouter } from 'vue-router';
+const route = useRouter()
 const seach = ref('');
-const images = reactive([
-    '/public/img/1.jpg',
-    '/public/img/2.jpg',
-    '/public/img/3.jpg',
-])
+let chooseIndex: any = ref(0);
+function chooseItem(index: number) {
+    chooseIndex.value = index;
+}
+const toNotice = () => {
+    route.push({
+        name: 'notice'
+    })
+}
 </script>
 
 <style scoped lang="scss">
-.yixian {
-    color: $font-color;
+.top_c {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+        padding: 8px;
+        display: flex;
+        align-items: center;
+
+        span {
+            padding: 0 5px;
+            font-size: 15px;
+            color: #7d7d7d;
+        }
+
+        .active {
+            font-size: 18px;
+            color: #000;
+            font-weight: bold;
+        }
+    }
 }
 
 .wrappar_c {
     width: 100vw;
     height: 100vh;
+    background-color: #fefefe;
 }
 
 .content_w {
@@ -39,7 +70,11 @@ const images = reactive([
     width: 100%;
 }
 
-.swipe_item_image {
+.swit-wra {
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }
 </style>
