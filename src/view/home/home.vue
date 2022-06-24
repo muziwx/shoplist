@@ -25,6 +25,23 @@ const seach = ref('');
 let chooseIndex: any = ref(0);
 function chooseItem(index: number) {
     chooseIndex.value = index;
+    switch (index) {
+        case 0:
+            route.push({
+                name: 'find'
+            })
+            break;
+        case 1:
+            route.push({
+                name: 'follow'
+            })
+            break;
+        case 2:
+            route.push({
+                name: 'location'
+            })
+            break;
+    }
 }
 const toNotice = () => {
     route.push({
